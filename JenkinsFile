@@ -16,7 +16,7 @@ pipeline {
                 sh 'ls -a'
                 sh 'mkdir ${PWD}/report'
                 sh 'ls -a'
-                sh 'sudo docker run -v ${PWD}/report:/opt/robotframework/reports:Z -v ${PWD}/tests:/opt/robotframework/tests:Z --user $(id -u):$(id -g) \
+                sh 'docker run -v ${PWD}/report:/opt/robotframework/reports:Z -v ${PWD}/tests:/opt/robotframework/tests:Z --user $(id -u):$(id -g) \
                             --mount type=bind,source=${PWD}/resources,target=/opt/robotframework/resources \
                             --mount type=bind,source=${PWD}/libraries,target=/opt/robotframework/libraries \
                             --mount type=bind,source=${PWD}/data,target=/opt/robotframework/data \
