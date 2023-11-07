@@ -1,0 +1,46 @@
+pipeline {
+    agent any
+    stages {
+        stage('Clean WS') {
+            steps {
+                cleanWs()
+            }
+        }
+        stage('Checkout') {
+            steps {
+                git branch: "master", url:'https://prgtests1.ela.corp/gitea/tesena/3hrp-tests.git'
+            }
+        }
+        stage('Test') {
+            steps{
+                sh 'ls -a'
+                sh 'mkdir ${PWD}/report'
+                sh 'ls -a'
+                sh 'sudo docker run -v ${PWD}/report:/opt/robotframework/reports:Z -v ${PWD}/tests:/opt/robotframework/tests:Z --user $(id -u):$(id -g) \
+                            --mount type=bind,source=${PWD}/resources,target=/opt/robotframework/resources \
+                            --mount type=bind,source=${PWD}/libraries,target=/opt/robotframework/libraries \
+                            --mount type=bind,source=${PWD}/data,target=/opt/robotframework/data \
+                            -e BROWSER=chrome ppodgorsek/robot-framework'
+            }
+        }
+    }
+    post {
+        always {
+            script {
+		          step(
+			            [
+			              $class              : 'RobotPublisher',
+			              outputPath          : 'report',
+			              outputFileName      : '**/output.xml',
+			              reportFileName      : '**/report.html',
+			              logFileName         : '**/log.html',
+			              disableArchiveOutput: false,
+			              passThreshold       : 50,
+			              unstableThreshold   : 40,
+			              otherFiles          : "**/*.png,**/*.jpg",
+			            ]
+		          	)
+		        }
+        }
+    }
+}
