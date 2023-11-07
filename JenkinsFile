@@ -8,7 +8,7 @@ pipeline {
         }
         stage('Checkout') {
             steps {
-                git branch: "master", url:'https://prgtests1.ela.corp/gitea/tesena/3hrp-tests.git'
+                git branch: "main", url:'https://github.com/tomashak/rf_webinar.git'
             }
         }
         stage('Test') {
@@ -26,21 +26,8 @@ pipeline {
     }
     post {
         always {
-            script {
-		          step(
-			            [
-			              $class              : 'RobotPublisher',
-			              outputPath          : 'report',
-			              outputFileName      : '**/output.xml',
-			              reportFileName      : '**/report.html',
-			              logFileName         : '**/log.html',
-			              disableArchiveOutput: false,
-			              passThreshold       : 50,
-			              unstableThreshold   : 40,
-			              otherFiles          : "**/*.png,**/*.jpg",
-			            ]
-		          	)
-		        }
+            robot archiveDirName: 'robot-plugin', outputPath: 'report', overwriteXAxisLabel: '', passThreshold: 12.0, unstableThreshold: 10.0
+		    archiveArtifacts 'results/output.xml'
         }
     }
 }
