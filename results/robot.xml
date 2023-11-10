@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8'?>
+<testsuite name="Test" tests="1" errors="0" failures="1" skipped="0" time="24.256" timestamp="2023-11-08T17:08:26.196000">
+<testcase classname="Test" name="Nas prvni TC" time="22.991">
+<failure message="Multiple keywords with name 'Wait Until Element Is Visible' found. Give the full name of the keyword you want to use:&#10;    FlaUILibrary.Wait Until Element Is Visible&#10;    SeleniumLibrary.Wait Until Element Is Visible" type="AssertionError" />
+<properties><property name="cbTestCaseId" value="123" /></properties></testcase>
+<properties>
+<property name="Documentation" value="Tohle je popis nasi suity, link do JIRA, kontakt, dulezite parametry,&#10;tady je druhy radek dokumentace&#10;treti radek" />
+</properties>
+</testsuite>

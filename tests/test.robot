@@ -3,13 +3,19 @@ Documentation  Tohle je popis nasi suity, link do JIRA, kontakt, dulezite parame
 ...            tady je druhy radek dokumentace
 ...            treti radek
 Library  SeleniumLibrary
+Library  FlaUILibrary
 #Resource  mainpage.resource
+Default Tags  smoke  
+Test Timeout  ${TIMEOUT}
 Test Setup  Nas start
 Test Teardown  Close Browser
+
+
 
 *** Variables ***
 ${URL}=  https://automationexercise.com/products
 ${BROWSER}=  chrome
+${TIMEOUT}=  1min
 #xpaths
 ${input_search}=  //input[@id="search_product"]
 ${button_search}=  //button[@id="submit_search"]
@@ -42,6 +48,8 @@ Zkontroluj
 *** Test Cases ***
 Nas prvni TC
     [Documentation]  toto je dokumentace TC, zase ID, varovani apod
-    ...              druhy radek    
+    ...              druhy radek        
+    [Tags]  windows  CB:123
     Vyhledej  cohledat=Top
     Zkontroluj  cokontrolovat=Top
+    

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.11.1 on win32)" generated="20231108 17:08:26.180" rpa="false" schemaversion="3">
+<suite id="s1" name="Test" source="C:\_GIT\rf_webinar\tests\test.robot">
+<test id="s1-t1" name="Nas prvni TC" line="48">
+<kw name="Nas start" type="SETUP">
+<doc>Vlastni keyword pro otevreni browseru a maximalizaci</doc>
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>browser=${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231108 17:08:27.455" level="INFO">Opening browser 'chrome' to base url 'https://automationexercise.com/products'.</msg>
+<status status="PASS" starttime="20231108 17:08:27.454" endtime="20231108 17:08:47.377"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231108 17:08:47.378" endtime="20231108 17:08:47.512"/>
+</kw>
+<status status="PASS" starttime="20231108 17:08:27.453" endtime="20231108 17:08:47.512"/>
+</kw>
+<kw name="Vyhledej">
+<arg>cohledat=Top</arg>
+<doc>Vyhleda zadane slovo</doc>
+<kw name="Wait Until Element Is Visible">
+<arg>${input_search}</arg>
+<msg timestamp="20231108 17:08:47.515" level="FAIL">Multiple keywords with name 'Wait Until Element Is Visible' found. Give the full name of the keyword you want to use:
+    FlaUILibrary.Wait Until Element Is Visible
+    SeleniumLibrary.Wait Until Element Is Visible</msg>
+<msg timestamp="20231108 17:08:47.844" level="INFO">test_tes-nb-186_nas_prvni_tc_1.jpg</msg>
+<msg timestamp="20231108 17:08:47.844" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="test_tes-nb-186_nas_prvni_tc_1.jpg"&gt;&lt;img src="test_tes-nb-186_nas_prvni_tc_1.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" starttime="20231108 17:08:47.515" endtime="20231108 17:08:47.518"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="NOT RUN" starttime="20231108 17:08:47.846" endtime="20231108 17:08:47.846"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${input_search}</arg>
+<arg>${cohledat}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231108 17:08:47.846" endtime="20231108 17:08:47.847"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>Zadal jsem neco do policka</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20231108 17:08:47.847" endtime="20231108 17:08:47.847"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${button_search}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231108 17:08:47.847" endtime="20231108 17:08:47.847"/>
+</kw>
+<msg timestamp="20231108 17:08:48.041" level="INFO">test_tes-nb-186_nas_prvni_tc_2.jpg</msg>
+<msg timestamp="20231108 17:08:48.041" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="test_tes-nb-186_nas_prvni_tc_2.jpg"&gt;&lt;img src="test_tes-nb-186_nas_prvni_tc_2.jpg" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="FAIL" starttime="20231108 17:08:47.514" endtime="20231108 17:08:47.848"/>
+</kw>
+<kw name="Zkontroluj">
+<arg>cokontrolovat=Top</arg>
+<doc>Zkontroluje ze se slovo vyhledalo</doc>
+<status status="NOT RUN" starttime="20231108 17:08:48.042" endtime="20231108 17:08:48.043"/>
+</kw>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20231108 17:08:48.044" endtime="20231108 17:08:50.441"/>
+</kw>
+<doc>toto je dokumentace TC, zase ID, varovani apod
+druhy radek</doc>
+<tag>CB:123</tag>
+<tag>windows</tag>
+<timeout value="1 minute"/>
+<status status="FAIL" starttime="20231108 17:08:27.452" endtime="20231108 17:08:50.443">Multiple keywords with name 'Wait Until Element Is Visible' found. Give the full name of the keyword you want to use:
+    FlaUILibrary.Wait Until Element Is Visible
+    SeleniumLibrary.Wait Until Element Is Visible</status>
+</test>
+<doc>Tohle je popis nasi suity, link do JIRA, kontakt, dulezite parametry,
+tady je druhy radek dokumentace
+treti radek</doc>
+<status status="FAIL" starttime="20231108 17:08:26.196" endtime="20231108 17:08:50.452"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="0" fail="1" skip="0">CB:123</stat>
+<stat pass="0" fail="1" skip="0">windows</stat>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
